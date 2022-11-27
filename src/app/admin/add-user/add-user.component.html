@@ -1,11 +1,11 @@
-<form class="form__wrapper">
+<form class="form__wrapper" [formGroup]="form">
   <mat-form-field class="form__field" appearance="outline">
     <mat-label>Name</mat-label>
-    <input matInput>
+    <input matInput formControlName="name">
   </mat-form-field>
   <mat-form-field class="form__field" appearance="outline">
     <mat-label>Email</mat-label>
-    <input matInput>
+    <input matInput formControlName="email">
   </mat-form-field>
   <button mat-raised-button color="primary" type="button">Save</button>
 </form>
