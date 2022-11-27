@@ -12,12 +12,8 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class PermissionsGuard implements CanActivateChild {
   constructor(private auth: AuthService, private router: Router) {}
-  canActivateChild():
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    console.log('checking permission');
+  canActivateChild(): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    console.log('checking permissions');
     return this.auth.hasPermissions();
   }
 }

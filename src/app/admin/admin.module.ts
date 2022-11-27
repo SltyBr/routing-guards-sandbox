@@ -9,10 +9,23 @@ import { AddProductComponent } from 'src/app/admin/add-product/add-product.compo
 import { AddUserComponent } from 'src/app/admin/add-user/add-user.component';
 import { AuthGuard } from 'src/app/auth/auth.guard';
 import { PermissionsGuard } from 'src/app/auth/permissions/permissions.guard';
+import { TableComponent } from './table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 const childRoutes: Routes = [
-  { path: 'add-user', component: AddUserComponent},
-  { path: 'add-product', component: AddProductComponent},
+  {
+    path: '',
+    canActivateChild: [PermissionsGuard],
+    children: [
+      { path: 'add-user', component: AddUserComponent },
+      { path: 'add-product', component: AddProductComponent },
+    ],
+  },
+  {
+    path: 'show-table', component: TableComponent
+  }
 ];
 
 const routes: Routes = [
@@ -21,18 +34,20 @@ const routes: Routes = [
     component: AdminComponent,
     children: childRoutes,
     canActivate: [AuthGuard],
-    canActivateChild: [PermissionsGuard]
   },
 ];
 
 @NgModule({
-  declarations: [AdminComponent],
+  declarations: [AdminComponent, TableComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     MatButtonModule,
     AddProductModule,
     AddUserModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   exports: [AdminComponent],
 })
