@@ -13,14 +13,15 @@ import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { FormGuard } from 'src/app/auth/form.guard';
 
 const childRoutes: Routes = [
   {
     path: '',
     canActivateChild: [PermissionsGuard],
     children: [
-      { path: 'add-user', component: AddUserComponent },
-      { path: 'add-product', component: AddProductComponent },
+      { path: 'add-user', component: AddUserComponent, canDeactivate: [FormGuard] },
+      { path: 'add-product', component: AddProductComponent, canDeactivate: [FormGuard] },
     ],
   },
   {
