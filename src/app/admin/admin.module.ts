@@ -31,10 +31,10 @@ const childRoutes: Routes = [
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     children: childRoutes,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard]
   },
 ];
 
