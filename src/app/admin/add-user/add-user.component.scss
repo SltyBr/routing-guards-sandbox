@@ -1,0 +1,10 @@
+.form {
+  &__wrapper {
+    max-width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__field {
+    width: 100%;
+  }
+}

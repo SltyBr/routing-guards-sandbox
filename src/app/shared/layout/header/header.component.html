@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Routing Guards</span>
+    <a
+      mat-raised-button
+      [routerLink]="['']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a
+      mat-raised-button
+      [routerLink]="['/admin']"
+      routerLinkActive="active"
+      >Admin</a
+    >
+  </mat-toolbar-row>
+</mat-toolbar>
