@@ -1,0 +1,8 @@
+<mat-list role="list">
+  <ng-container *ngIf="users$ | async as users">
+    <div class="user-wrapper" *ngFor="let user of users">
+      <mat-list-item role="listitem">{{ user.name }}</mat-list-item>
+      <a mat-button [routerLink]="[user.id]">Details</a>
+    </div>
+  </ng-container>
+</mat-list>

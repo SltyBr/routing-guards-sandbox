@@ -7,8 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from 'src/app/shared/layout/header/header.module';
 import { HomeModule } from 'src/app/home/home.module';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+const materialEntities = [
+  MatButtonModule,
+  MatProgressBarModule
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +29,8 @@ import { MatButtonModule } from '@angular/material/button';
     HeaderModule,
     HomeModule,
     MatDialogModule,
-    MatButtonModule
+    HttpClientModule,
+    ...materialEntities
   ],
   providers: [],
   bootstrap: [AppComponent]

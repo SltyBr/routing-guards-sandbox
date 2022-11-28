@@ -1,0 +1,19 @@
+<div class="user__wrapper">
+  <a mat-raised-button color="primary" class="user__button" routerLink="/users"><mat-icon>keyboard_backspace</mat-icon>Back</a>
+  <ng-container *ngIf="user$ | async as user; else loading">
+    <div class="user__details">
+      <h4>
+        <b>Name</b>: {{user['name']}}
+      </h4>
+      <h4>
+        <b>Email</b>: {{user['email']}}
+      </h4>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <span>...Loading...</span>
+</ng-template>
+
+
